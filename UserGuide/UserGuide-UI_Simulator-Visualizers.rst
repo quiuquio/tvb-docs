@@ -78,6 +78,21 @@ also available.
    Brain activity wit EEG recordings.
 
 
+Dual Brain - sEEG Visualizer
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This visualizer combines the brain activity on top of a 3D display of the pacient's
+head and on the right column, the sEEG (Stereo EEG) channels recordings. Channel selection is
+also available.
+
+
+.. figure:: screenshots/visualizer_dual_head_seeg.jpg
+   :width: 90%
+   :align: center
+
+   Brain activity wit sEEG recordings.
+
+
 Connectivity Measure Visualizer
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -189,12 +204,23 @@ spectrum for every frequency frequency and for every segment
 
 This visualizer is very similar with the previous one (Cross Coherence Visualizer).
 
+.. figure:: screenshots/visualizer_complex_coherence.jpg
+     :width: 90%
+     :align: center
+
+     Preview for Complex Coherence Visualizer
+
 
 Cross Correlation Visualizer
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Displays the cross-correlation matrix. Similar to the previous three visualizers.
 
+
+Pearson Coefficients Visualizer
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Displays the Pearson correlation coefficients matrix. Similar to the previous four visualizers.
 
 
 Fourier Spectrum Visualizer
