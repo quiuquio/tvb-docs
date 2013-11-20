@@ -121,6 +121,20 @@ Instead of a discrete view, this time, we can have a continous display (with gra
    Preview for Topographic Visualizer
 
 
+Surface Visualizer
+~~~~~~~~~~~~~~~~~~~~
+
+This visualizer can be used for displaying various Brain Surface. It is a static view,
+mainly for visual inspecting imported surfaces in TVB.
+Optionally it can display associated RegionMapping entities for a given surface.
+
+.. figure:: screenshots/visualizer_surface.jpg
+   :width: 90%
+   :align: center
+
+   Surface Visualizer.
+
+
 Group Display
 .......................
 
