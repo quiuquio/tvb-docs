@@ -134,6 +134,14 @@ Optionally it can display associated RegionMapping entities for a given surface.
 
    Surface Visualizer.
 
+Sensor Visualizer
+~~~~~~~~~~~~~~~~~~~~
+
+This visualizer can be used for displaying EEG, MEEG, and internal sensors .
+It is a static view, intended for visual inspecting imported sensors in TVB.
+Optionally it can display the sensors on a eeg cap surface.
+
+   Sensor Visualizer.
 
 Group Display
 .......................
