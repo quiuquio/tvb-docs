@@ -139,9 +139,8 @@ Sensor Visualizer
 
 This visualizer can be used for displaying EEG, MEEG, and internal sensors .
 It is a static view, intended for visual inspecting imported sensors in TVB.
-Optionally it can display the sensors on a eeg cap surface.
+Optionally it can display the sensors on a EEG cap surface.
 
-   Sensor Visualizer.
 
 Group Display
 .......................
