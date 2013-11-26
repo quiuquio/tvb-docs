@@ -40,17 +40,6 @@ coefficients for all possible combinations of nodes.
 Results are visualized with the `Correlation viewer`.
 
 
-Pearson Correlation Coefficient
-................................
-
-To calculate the Pearson correlation coefficient of all nodes of a given multi-node
-time-series, simply select the TimeSeries object from the drop-down list in the
-`Pearson Correlation Coefficient` analyzer interface and hit `Launch`.
-
-The algorithm returns a CorrelationCoefficient object that contains cross correlation
-coefficients for all possible combinations of nodes.
-Results are visualized with the `Pearson Correlation Coefficient viewer`.
-
 
 Fourier Spectral Analysis
 .........................
