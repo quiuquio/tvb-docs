@@ -303,12 +303,11 @@ ZIP file should include files with the following naming schema and format:
    - contains a matrix of weights
    - any value greater than zero is considered as a connection. You should not have negative values in your weights file.
 
-#. If any file name contains "position" it will be considered as the container
+#. If any file name contains "centres" it will be considered as the container
    for connectivity centers and the parse process expects the following format:
 
    - text file containing values separated by spaces / tabs
-   - on the first row there should be  a header of the form 'labels X Y Z'
-   - each row represents data for a region center
+   - each row represents coordinates data for a region center
    - each row should have at least 4 columns: region label and center position
      (x, y, z)
 
