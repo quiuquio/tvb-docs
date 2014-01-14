@@ -312,9 +312,9 @@ ZIP file should include files with the following naming schema and format:
    - a region label is a short unique identifier, for example: ‘RM-TCpol_R’
    - each region centre is just a single point in space, corresponding to the centre of the region
    - the meaning of the (x,y,z) coordinates depends entirely on how data was generated.
-   It is possible to specify any coordinate system you want (“native”, “mni”, “talaraich”) depending on the processing you apply to your data.
-   A region centre would be a single spatial location in 3D.
-   This location is specified by three numbers (x,y,z), these numbers should ideally represent mm and must be relative to an origin (x=0, y=0, z=0).
+     It is possible to specify any coordinate system you want (“native”, “mni”, “talaraich”) depending on the processing you apply to your data.
+     A region centre would be a single spatial location in 3D.
+     This location is specified by three numbers (x,y,z), these numbers should ideally represent mm and must be relative to an origin (x=0, y=0, z=0).
 
 #. If any file name contains "tract" it will be considered as container for
    connectivity tract lengths and the parse process expects the following
