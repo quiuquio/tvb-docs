@@ -119,8 +119,13 @@ Note that we'll use placeholders in the demo script below::
 The following is a demo script for using TVB Command mode for various operations, with storage mode enabled ::
 
 	## First lines should always be setting use_storage flag to true if you want to persisted data.
+<<<<<<< HEAD
 	from tvb.basic.profile import TvbProfile as tvb_profile
     tvb_profile.set_profile(["-profile", "CONSOLE_PROFILE"])
+=======
+	import tvb.basic.config.settings as cfg
+	cfg.TVBSettings.TRAITS_CONFIGURATION.use_storage = True
+>>>>>>> TVB-963
 	
 	## We need and user and a project. You can initialize your database with
 	## the following. Care this will also reset all the data from your database.
@@ -134,9 +139,17 @@ The following is a demo script for using TVB Command mode for various operations
 	from tvb.core.traits import db_events
 	from tvb.core.entities import model
 	from tvb.core.entities.storage import dao
+<<<<<<< HEAD
 	from tvb.core.services.operation_service import OperationService
 	from tvb.core.adapters.abcadapter import ABCAdapter
 	from tvb.simulator import simulator, models, coupling, integrators, monitors, noise
+=======
+	from tvb.core.services.operationservice import OperationService
+	from tvb.core.adapters.abcadapter import ABCAdapter
+	from tvb.simulator import simulator, models, coupling, integrators, monitors, noise
+	from tvb.simulator.common import get_logger
+	from tvb.datatypes import connectivity, surfaces, equations, patterns
+>>>>>>> TVB-963
 	
 	db_events.attach_db_events()
 	
@@ -168,7 +181,11 @@ The following is a demo script for using TVB Command mode for various operations
 	## We can also retrieve a datatype by specific filters .
 	## E.g. let's get all the connectivities for a specific subject
 	from tvb.datatypes.connectivity import Connectivity
+<<<<<<< HEAD
 	dt_filter = FilterChain(fields = [FilterChain.datatype + '.subject'], operations=["=="], values=['My fancy subject'])
+=======
+	dt_filter = FilterChain(fields = [FilterChain.datatype + '.subject'], operations = ["=="], values = ['My fancy subject'])
+>>>>>>> TVB-963
 	returned_values = dao.get_values_of_datatype(project.id, Connectivity, dt_filter)
 	print "Got from database values: %s" %(returned_values,)
 	
@@ -190,8 +207,13 @@ The following is a demo script for using TVB Command mode for various operations
 	what_to_watch = monitors.TemporalAverage(period=0.48828125) 
 	
 	## Initialise a Simulator -- Model, Connectivity, Integrator, and Monitors.
+<<<<<<< HEAD
 	sim = simulator.Simulator(model=oscilator, connectivity=white_matter,
 	                          coupling=white_matter_coupling, integrator=heunint, monitors=what_to_watch)
+=======
+	sim = simulator.Simulator(model = oscilator, connectivity = white_matter, 
+	                          coupling = white_matter_coupling, integrator = heunint, monitors = what_to_watch)
+>>>>>>> TVB-963
 	sim.configure()
 	## Perform the simulation
 	tavg_data = []
@@ -220,8 +242,13 @@ The following is a demo script for using TVB Command mode for various operations
 	dao.store_entity(data_result)
 	## Loading from db to check results are properly stored
 	loaded_dt = ABCAdapter.load_entity_by_gid(data_result.gid)
+<<<<<<< HEAD
 	print "Time shape is %s" % (loaded_dt.get_data_shape('time'),)
 	print "Data shape is %s" % (loaded_dt.get_data_shape('data'),)
+=======
+	print "Time shape is %s"%(loaded_dt.get_data_shape('time'),)
+	print "Data shape is %s"%(loaded_dt.get_data_shape('data'),)
+>>>>>>> TVB-963
 	print loaded_dt.get_data('time')
 	print loaded_dt.get_data('data')
 
