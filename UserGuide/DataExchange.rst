@@ -402,17 +402,18 @@ contain letter "r" or "l" at the end of the suffix (e.g. <trianglesl.txt> and
 
 Import Surface from wavefront obj
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-This is a generic 3d geometry format. Many 3d authoring tools can export geometry
+OBJ is a generic 3d geometry format. Many 3d authoring tools can export geometry
 in this format.
 
 File Format
 ***********
-This is a standard format. An overview of the format can be found on wikipedia:
-    http://en.wikipedia.org/wiki/Wavefront_.obj_file
-TVB supports only a subset of the specification.
-Only geometry data is considered and faces have to be triangles or quads.
-We do not support features such as texture coordinates, materials and groups.
+An overview of the OBJ file format can be found on Wikipedia_
+TVB supports only a subset of the specification. Meaning that only geometry data is considered
+and accepted forms for faces attributes are: triangles or quads.
+We ignore at import time features such as texture coordinates, materials and groups.
 
+
+.. _Wikipedia: http://en.wikipedia.org/wiki/Wavefront_.obj_file
 
 |
 
