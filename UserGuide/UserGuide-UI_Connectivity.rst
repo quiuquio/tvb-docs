@@ -82,12 +82,23 @@ From the this 2D display allows you to:
 
 
 The **Weights** button opens a menu that allows you to perform basic algebraic 
-operations on a set of selected nodes specifying the edge type:
+operations on a group of edges. You can select multiple nodes from the current connectivity
+(by default all nodes are selected); thus you will end up with two sets of nodes:
+the set of selected nodes and the set of un-selected nodes. These two sets of nodes,
+determine further four categories of edges:
 
-    - Incoming --> Incoming
-    - Incoming --> Outgoing
-    - Outgoing --> Incoming
-    - Outgoing --> Outgoing
+    - In --> In: are edges inside the set of selected nodes, edges between selected nodes
+    - In --> Out: are edges with both ends in the set of unselected nodes
+    - Out --> In: are directed edges with the root in the set of unselected nodes, and the other end in the set of selected nodes
+    - Out --> Out: are directed edges with the root in the set of selected nodes, and the other end in the set of unselected nodes
+
+For these 4 categories of edges we can do bulk operations like: set, add, decrease, multiply or divide with a numeric value.
+
+E.G. For removing all inter-hemisphere connections, one could:
+first un-select all the nodes which are in one hemisphere,
+then select operation *Set(n)* for edges *In --> Out*, fill value 0,
+press button *Apply*, and last repeat for edges *Out --> In*.
+
 
 .. i.e., if the connection strengths to be modified are going out or coming in from/to the selected nodes.
 
@@ -97,25 +108,25 @@ operations on a set of selected nodes specifying the edge type:
    :width: 90%
    :align: center
 
-   Preview for Operations on a selection of nodes
+   Preview for BUlk Operations on edges
 
 
 .. note:: 
   Available operations are:
 
-  - Assignation (set): assigns the given numeric value to all the nodes within 
+  - Assignation (set): assigns the given numeric value to all the edges within
     the set.
   - Addition (add): adds the new value to the current value in the connectivity 
-    matrix.
+    weights matrix.
   - Subtraction (decrease): subtracts the new value to the current value in the 
-    connectivity matrix.
+    connectivity matrix of weights.
   - Multiplication (multiply): multiplies the current value in the connectivity 
-    matrix by the given numeric value.
-  - Division (divide): divides the current value in the connectivity matrix by 
+    matrix of weights by the given numeric value.
+  - Division (divide): divides the current value in the connectivity matrix of weights by
     the given numeric value.
 
 
-Click on the `Apply weight change` button to perform the selected operation.
+Click on the `Apply weight change` button to perform the selected operation on a group of edges.
 
 .. note::
 
@@ -133,7 +144,7 @@ Click on the `Apply weight change` button to perform the selected operation.
         on your research assumptions. 
  
 
-By default the set includes all the available nodes in the connectivity matrix. 
+By default the set of selected nodes includes all the available nodes in the connectivity matrix.
 
     .. figure:: screenshots/connectivity3d_newselection.jpg
       :width: 90%
