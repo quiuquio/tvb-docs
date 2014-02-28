@@ -55,23 +55,27 @@ Connectivity Matrix Editor
 
    Preview for the Matrix Editor
 
-From the this 2D display allows you to:
+From this interactive 2D display you can:
 
-  - easily edit the connectivity (tract lengths) matrix, and
-  - create a modified version of your connectivity matrix
-  - select a small subset of nodes
-    - perform basic algebraic operations on that group
-  - save all changes to use the new Connectivity object in a simulation.
+  - easily edit the connectivity weights or tract lengths matrix; 
+  - select a subset of the available nodes;
+  - perform basic algebraic operations on that group; and
+  - save the new version as a new connectivity matrix.
+
+  The Connectivity datatype will be available in the Simulator area. 
 
 
 .. hint:: 
 
-    In the Matrix Editor only one quadrant is displayed at a time.
+    In the Connectivity Editor only one quadrant is displayed at a time.
     You can select which quadrant is shown by accessing the quadrant selector 
     button in the upper left corner of the matrix display.
-     
-    - quadrants 1 and 4 are the intra-hemisphere connectivity weights,
-    - and quadrants 2 and 3 are the inter-hemisphere connectivity weights.
+
+    Assuming that the connectivity matrix is sorted such that the first half
+    corresponds one single hemipshere:
+
+    - quadrants 1 and 4 will represent the intra-hemispheric connections,
+    - and quadrants 2 and 3 will be the inter-hemispheric connections. 
 
 
       .. figure:: screenshots/connectivity_quadrants.jpg
@@ -81,26 +85,46 @@ From the this 2D display allows you to:
       Preview for Quadrant Selection
 
 
-The **Weights** button opens a menu that allows you to perform basic algebraic 
-operations on a group of edges. You can select multiple nodes from the current connectivity
-(by default all nodes are selected); thus you will end up with two sets of nodes:
-the set of selected nodes and the set of un-selected nodes. These two sets of nodes,
-determine further four categories of edges:
 
-    - In --> In: are edges inside the set of selected nodes, edges between selected nodes
-    - In --> Out: are edges with both ends in the set of unselected nodes
-    - Out --> In: are directed edges with the root in the set of unselected nodes, and the other end in the set of selected nodes
-    - Out --> Out: are directed edges with the root in the set of selected nodes, and the other end in the set of unselected nodes
+You can create a smaller selection by clicking on the `Quick-select` button and
+editing the list of node names. 
 
-For these 4 categories of edges we can do bulk operations like: set, add, decrease, multiply or divide with a numeric value.
+.. figure:: screenshots/connectivity_quick_select.jpg
+   :width: 90%
+   :align: center
 
-E.G. For removing all inter-hemisphere connections, one could:
-first un-select all the nodes which are in one hemisphere,
-then select operation *Set(n)* for edges *In --> Out*, fill value 0,
-press button *Apply*, and last repeat for edges *Out --> In*.
+   Preview for `Quick-select` list
 
 
-.. i.e., if the connection strengths to be modified are going out or coming in from/to the selected nodes.
+.. |savetick| image:: icons/save_tick.png
+.. |staricon| image:: icons/star_icon.png
+
+TVB enables you to save:
+ 
+  - a particular selection by entering a name and clicking on |savetick| or,
+  - a new `Connectivity` object by clicking on |staricon|. This entity can be 
+    used later on in |TVB| `Simulator`.
+
+
+The **Weights** button opens a menu to perform basic algebraic operations on
+a group of edges. You can select multiple nodes from the current connectivity
+(by default all nodes are selected); thus you will end up with two sets of
+nodes: the set of **selected nodes** and the set of **un-selected nodes**. These two
+sets of nodes, determine four categories of edges:
+
+    - In --> In:  are only the edges connecting the nodes of the selected set. 
+    - In --> Out: are the edges that connect nodes in the selected set (rows) to nodes in the unselected set (columns).
+    - Out --> In: are the edges connecting nodes in the unselected set (rows) to nodes in the selected set (columns). 
+    - Out --> Out: are edges connecting pair of nodes in the 'unselected set'.
+
+
+.. hint:: 
+
+    For removing all **inter-hemispheric** connections, one could:
+    - First, create a selection with the nodes from one hemisphere. 
+    - Second, select the operation *Set(n)* for edges *In --> Out*, fill with value 0.
+    - Apply the changes. 
+    - Third, repeat this for edges *Out --> In*.
 
 |
 
@@ -153,26 +177,6 @@ By default the set of selected nodes includes all the available nodes in the con
       Preview for New Selection
 
 
-You can create a smaller selection by clicking on the `Quick-select` button and
-editing the list of node names. 
-
-.. figure:: screenshots/connectivity_quick_select.jpg
-   :width: 90%
-   :align: center
-
-   Preview for `Quick-select` list
-
-
-.. |savetick| image:: icons/save_tick.png
-.. |staricon| image:: icons/star_icon.png
-
-TVB enables you to save:
- 
-  - a particular selection by entering a name and clicking on |savetick| or,
-  - a new `Connectivity` object by clicking on |staricon|. This entity can be 
-    used later on in |TVB| `Simulator`.
-
-
 |
 |
 
@@ -213,7 +217,7 @@ edges.
 Connectivty 3D Nodes
 ~~~~~~~~~~~~~~~~~~~~
 
-A 3D representation of the connectivity matrix nodes. (WebGL)
+A 3D representation of the connectivity matrix nodes. 
 
 Two specific connectivity node-metrics, (previously computed using one of BCT 
 analyzers) can be used to independently set: 
