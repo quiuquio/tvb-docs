@@ -118,21 +118,12 @@ sets of nodes, determine four categories of edges:
     - Out --> Out: are edges connecting pair of nodes in the 'unselected set'.
 
 
-.. hint:: 
-
-    For removing all **inter-hemispheric** connections, one could:
-    - First, create a selection with the nodes from one hemisphere. 
-    - Second, select the operation *Set(n)* for edges *In --> Out*, fill with value 0.
-    - Apply the changes. 
-    - Third, repeat this for edges *Out --> In*.
-
-|
 
 .. figure:: screenshots/connectivity3d_edges_operations.jpg
    :width: 90%
    :align: center
 
-   Preview for BUlk Operations on edges
+   Preview for Bulk Operations on edges
 
 
 .. note:: 
@@ -151,6 +142,129 @@ sets of nodes, determine four categories of edges:
 
 
 Click on the `Apply weight change` button to perform the selected operation on a group of edges.
+
+
+Example: **HOW TO REMOVE INTER-HEMISPHERIC CONNECTIONS**
+
+1. Select multiple nodes from the Connectivity, for instance those from the left hemisphere. 
+
+
+    .. figure:: screenshots/connectivityeditor_SelectASetOfNodes_a.png
+      :width: 90%
+      :align: center
+
+      Node selection
+
+
+2. Apply the changes. The selected nodes appear in green. 
+
+
+    .. figure:: screenshots/connectivityeditor_SelectASetOfNodes_b.png
+      :width: 90%
+      :align: center
+
+      Node selection
+
+3. Save the selection to make it easier later. 
+
+
+    .. figure:: screenshots/connectivityeditor_SaveSelection.png
+      :width: 90%
+      :align: center
+
+      Save node selection
+
+
+
+4. The Connectivity editor will be aware of two sets of nodes: the ones in your
+selection (green nodes) and the ones that are not selected (white nodes).
+
+
+5. Move to the third quadrant (Q3) for instance. 
+
+
+    .. figure:: screenshots/connectivityeditor_ShowConnections.png
+      :width: 90%
+      :align: center
+
+      3D visualizer zoom-in to show the interhemispheric connections 
+
+
+
+5. Then you can proceed to perform some operations on the edge values.
+
+    .. figure:: screenshots/connectivityeditor_EdgeOperations.png
+      :width: 90%
+      :align: center
+
+      Edge operations 
+
+
+
+The four categories of edges in this particular case are:
+
+  - edges IN-IN: intrahemispheric edges from the left hemisphere.
+  - edges OUT-OUT: intrahemispheric edges from the right.  
+  - edges IN-OUT:  interhemispheric edges in quadrant 2 (Q2)   
+  - edges OUT-IN:  interhemispheric edges in quadrant 3 (Q3)
+  
+
+6. Select operation "Set(n)" for edges **OUT-IN**, set the value to 0 and then press Apply.
+
+
+    .. figure:: screenshots/connectivityeditor_SetInOut.png
+      :width: 90%
+      :align: center
+
+      Set IN-OUT edges to 0
+ 
+
+7. Repeat for edges **IN-OUT**
+
+
+    .. figure:: screenshots/connectivityeditor_SetOutIn.png
+      :width: 90%
+      :align: center
+
+      Set OUT-IN edges to 0
+
+
+The interhemispheric connections are gone. Do not forget to select all the nodes again befire saving your new matrix.
+
+
+    .. figure:: screenshots/connectivityeditor_NewMatrix.png 
+
+      :width: 90%
+      :align: center
+
+      New matrix
+
+
+8. Save your new matrix 
+
+
+    .. figure:: screenshots/connectivityeditor_SaveNewConenctivity.png
+
+
+      :width: 90%
+      :align: center
+
+      Save new matrix
+
+
+9. Once you have your new matrix, you can launch the connectivity visualizers and
+check that these connections are not there any more.
+
+
+    .. figure:: screenshots/connectivityeditor_ReloadView.png
+
+
+      :width: 90%
+      :align: center
+
+      Reaload view
+
+
 
 .. note::
 
