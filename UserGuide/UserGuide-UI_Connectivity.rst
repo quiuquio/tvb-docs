@@ -72,7 +72,7 @@ From this interactive 2D display you can:
     button in the upper left corner of the matrix display.
 
     Assuming that the connectivity matrix is sorted such that the first half
-    corresponds one single hemipshere:
+    corresponds one single hemisphere:
 
     - quadrants 1 and 4 will represent the intra-hemispheric connections,
     - and quadrants 2 and 3 will be the inter-hemispheric connections. 
@@ -149,7 +149,7 @@ Example: **HOW TO REMOVE INTER-HEMISPHERIC CONNECTIONS**
 1. Select multiple nodes from the Connectivity, for instance those from the left hemisphere. 
 
 
-    .. figure:: screenshots/connectivityeditor_SelectASetOfNodes_a.png
+    .. figure:: screenshots/connectivityeditor_SelectASetOfNodes_a.jpg
       :width: 90%
       :align: center
 
@@ -159,7 +159,7 @@ Example: **HOW TO REMOVE INTER-HEMISPHERIC CONNECTIONS**
 2. Apply the changes. The selected nodes appear in green. 
 
 
-    .. figure:: screenshots/connectivityeditor_SelectASetOfNodes_b.png
+    .. figure:: screenshots/connectivityeditor_SelectASetOfNodes_b.jpg
       :width: 90%
       :align: center
 
@@ -168,7 +168,7 @@ Example: **HOW TO REMOVE INTER-HEMISPHERIC CONNECTIONS**
 3. Save the selection to make it easier later. 
 
 
-    .. figure:: screenshots/connectivityeditor_SaveSelection.png
+    .. figure:: screenshots/connectivityeditor_SaveSelection.jpg
       :width: 90%
       :align: center
 
@@ -183,7 +183,7 @@ selection (green nodes) and the ones that are not selected (white nodes).
 5. Move to the third quadrant (Q3) for instance. 
 
 
-    .. figure:: screenshots/connectivityeditor_ShowConnections.png
+    .. figure:: screenshots/connectivityeditor_ShowConnections.jpg
       :width: 90%
       :align: center
 
@@ -193,7 +193,7 @@ selection (green nodes) and the ones that are not selected (white nodes).
 
 5. Then you can proceed to perform some operations on the edge values.
 
-    .. figure:: screenshots/connectivityeditor_EdgeOperations.png
+    .. figure:: screenshots/connectivityeditor_EdgeOperations.jpg
       :width: 90%
       :align: center
 
@@ -212,57 +212,52 @@ The four categories of edges in this particular case are:
 6. Select operation "Set(n)" for edges **OUT-IN**, set the value to 0 and then press Apply.
 
 
-    .. figure:: screenshots/connectivityeditor_SetInOut.png
-      :width: 90%
-      :align: center
+.. figure:: screenshots/connectivityeditor_SetInOut.jpg
+    :width: 90%
+    :align: center
 
-      Set IN-OUT edges to 0
+    Set IN-OUT edges to 0
  
 
 7. Repeat for edges **IN-OUT**
 
 
-    .. figure:: screenshots/connectivityeditor_SetOutIn.png
-      :width: 90%
-      :align: center
+.. figure:: screenshots/connectivityeditor_SetOutIn.jpg
+    :width: 90%
+    :align: center
 
-      Set OUT-IN edges to 0
-
-
-The interhemispheric connections are gone. Do not forget to select all the nodes again befire saving your new matrix.
+    Set OUT-IN edges to 0
 
 
-    .. figure:: screenshots/connectivityeditor_NewMatrix.png 
+The inter-hemispheric connections are gone. Do not forget to select all the nodes again before saving your new matrix.
 
-      :width: 90%
-      :align: center
 
-      New matrix
+.. figure:: screenshots/connectivityeditor_NewMatrix.jpg
+    :width: 90%
+    :align: center
+
+    New matrix
 
 
 8. Save your new matrix 
 
 
-    .. figure:: screenshots/connectivityeditor_SaveNewConenctivity.png
+.. figure:: screenshots/connectivityeditor_SaveNewConenctivity.jpg
+    :width: 90%
+    :align: center
 
-
-      :width: 90%
-      :align: center
-
-      Save new matrix
+    Save new matrix
 
 
 9. Once you have your new matrix, you can launch the connectivity visualizers and
 check that these connections are not there any more.
 
 
-    .. figure:: screenshots/connectivityeditor_ReloadView.png
+.. figure:: screenshots/connectivityeditor_ReloadView.jpg
+    :width: 90%
+    :align: center
 
-
-      :width: 90%
-      :align: center
-
-      Reaload view
+    Reload view
 
 
 
@@ -284,11 +279,11 @@ check that these connections are not there any more.
 
 By default the set of selected nodes includes all the available nodes in the connectivity matrix.
 
-    .. figure:: screenshots/connectivity3d_newselection.jpg
-      :width: 90%
-      :align: center
+.. figure:: screenshots/connectivity3d_newselection.jpg
+    :width: 90%
+    :align: center
 
-      Preview for New Selection
+    Preview for New Selection
 
 
 |
@@ -309,7 +304,7 @@ base model part of TVB.
 
    Preview for Connectivity Viewer 3D Edges
 
-The 3D semi-transparent surface arround the connectivity nodes, whether it is
+The 3D semi-transparent surface around the connectivity nodes, whether it is
 the cortical surface or the outer-skin, is used just for giving space guidance.
 
 You can select an individual node and right-click on it to activate the incoming
@@ -324,28 +319,6 @@ edges.
 
    Preview for Connectivity Viewer 3D Edges - Coloring incoming / outgoing edges
 
-
-|
-|
-
-Connectivty 3D Nodes
-~~~~~~~~~~~~~~~~~~~~
-
-A 3D representation of the connectivity matrix nodes. 
-
-Two specific connectivity node-metrics, (previously computed using one of BCT 
-analyzers) can be used to independently set: 
-  
-  - the node color and
-  - the node size. 
-
-
-.. figure:: screenshots/connectivity3d_viewer.jpg
-   :width: 50%
-   :align: center
-
-   Preview for Connectivity 3D Viewer
- 
 
 |
 |
@@ -378,7 +351,7 @@ There are three main views (projections):
 |
 
 The node size can be defined using a ConnectivityMeasure datatype 
-(e.g. the output of a BCT Anlayzer). Additionally, a threshold can be set for 
+(e.g. the output of a BCT Analyzer). Additionally, a threshold can be set for
 the node color. The nodes with values above the threshold will be red and those
 whose value are below the threshold will be yellow.
 
