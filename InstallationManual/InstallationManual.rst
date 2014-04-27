@@ -74,6 +74,7 @@ If you have a non-standard situation, please try installing the packages by hand
 
 - h5py: easy_install, pip
 
+In order to run the tests, ``pip install BeautifulSoup``.
 
 2. OTHER REQUIREMENTS
 =====================
