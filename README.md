@@ -1,9 +1,8 @@
-
 TVB Tutorials in raw form
 ============================
 
-
 The use-case that we recommend for all contributors is the following:
+
 - Register http://www.thevirtualbrain.org/register/ and get a TVB_Distribution package
 - Test it in its original form, to make sure it's compatible with your environment
 - Read carefully TVB-Distribution/docs/ContributorsManual.pdf
