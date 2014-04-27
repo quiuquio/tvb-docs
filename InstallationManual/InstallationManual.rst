@@ -8,7 +8,7 @@
 
 This file will guide you in installing and using The Virtual Brain project (TVB)
 correctly.  For a more detailed solution to any of your problems related to TVB
-software, please contact us at admin@thevirtualbrain.org
+software, please contact the mailing list at tvb-users@googlegroups.com.
 
 
 1. INSTALL REQUIREMENTS
@@ -18,21 +18,38 @@ TVB has been packaged into stand-alone distributions, and using one of these
 distributions is often the most convenient choice because it does not require
 downloading or installing anything else. 
 
-If you wish to install or run TVB from source, you will need to install 
-several dependencies. We assume however that you already have installed 
-CPython 2.6 or 2.7, along with NumPy, SciPy and Matplotlib. On Linux, this
-is most easily done via the system's package manager. On Mac OS X & Windows
-we recommend using a prepackaged distribution of Python such as PythonXY
-(http://www.pythonxy.com) or Enthought Python Distribution
-(http://www.enthought.com), that when installed, provide most
-of the dependencies.
+Running TVB from the sources requires setting up a Python environment with the
+various dependencies, including standard scientific libraries such as NumPy, 
+SciPy, MatPlotLib, etc. Where available (Mac OS X, Windows & Linux), the Anaconda
+Python distribution (http://continuum.io/downloads) is the easiest way to get
+started, as it provides many of the tools. 
 
-The non-standard libraries that are required for the TVB can be most easily
-installed via the command 
+Next, obtain TVB sources via the GitHub repo pack containing all the necessary
+module and a few useful tools:
 
-pip install cherrypy formencode sqlalchemy sqlalchemy-migrate genshi simplejson cfflib networkx nibabel apscheduler mod_pywebsocket psutil minixsv h5py
+`git clone https://github.com/the-virtual-brain/tvb-pack`
 
-where pip is the standard Python package manager.
+Next, initialize and update the submodules
+
+`git submodule init`
+`git submodule update`
+
+The easiest way to set up the dependencies is to create a virtual environment
+with the provided script:
+
+`scripts/mkenv.sh my_env_path`
+
+This environment can be activated with 
+
+`source scripts/env.sh my_env_path`
+
+after which TVB should function correctly. 
+
+The extra dependencies can otherwise be installed all at once via `pip`
+
+`pip install cherrypy formencode sqlalchemy sqlalchemy-migrate genshi simplejson cfflib networkx nibabel apscheduler mod_pywebsocket psutil minixsv h5py`
+
+where `pip` is a standard Python package manager.
 
 If you have a non-standard situation, please try installing the packages by hand:
 
