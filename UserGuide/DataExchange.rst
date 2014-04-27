@@ -1,4 +1,4 @@
-|TVB| Data Storage
+﻿|TVB| Data Storage
 ==================
 
 The purpose of this chapter is to provide some details about the way |TVB|
@@ -303,14 +303,18 @@ ZIP file should include files with the following naming schema and format:
    - contains a matrix of weights
    - any value greater than zero is considered as a connection. You should not have negative values in your weights file.
 
-#. If any file name contains "position" it will be considered as the container
+#. If any file name contains "centres" it will be considered as the container
    for connectivity centers and the parse process expects the following format:
 
    - text file containing values separated by spaces / tabs
-   - on the first row there should be  a header of the form 'labels X Y Z'
-   - each row represents data for a region center
-   - each row should have at least 4 columns: region label and center position
-     (x, y, z)
+   - each row represents coordinates data for a region center
+   - each row should have at least 4 columns: region label and center position (x, y, z)
+   - a region label is a short unique identifier, for example: ‘RM-TCpol_R’
+   - each region centre is just a single point in space, corresponding to the centre of the region
+   - the meaning of the (x,y,z) coordinates depends entirely on how data was generated.
+     It is possible to specify any coordinate system you want (“native”, “mni”, “talaraich”) depending on the processing you apply to your data.
+     A region centre would be a single spatial location in 3D.
+     This location is specified by three numbers (x,y,z), these numbers should ideally represent mm and must be relative to an origin (x=0, y=0, z=0).
 
 #. If any file name contains "tract" it will be considered as container for
    connectivity tract lengths and the parse process expects the following
@@ -326,8 +330,7 @@ ZIP file should include files with the following naming schema and format:
 
    - text file containing values separated by spaces / tabs
    - each row represents orientation for a region center
-   - each row should have at least 3 columns for region center orientation (3
-     float values separated with spaces or tabs)
+   - each row should have at least 3 columns for region center orientation (3 float values separated with spaces or tabs)
 
 #. If any file name contains "area" it will be considered as container for
    connectivity areas and the parse process expects the following format:
@@ -394,6 +397,24 @@ contain letter "r" or "l" at the end of the suffix (e.g. <trianglesl.txt> and
 <trianglesr.txt>)
 
 |
+|
+
+
+Import Surface from wavefront obj
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+OBJ is a generic 3d geometry format. Many 3d authoring tools can export geometry
+in this format.
+
+File Format
+***********
+An overview of the OBJ file format can be found on Wikipedia_
+TVB supports only a subset of the specification. Meaning that only geometry data is considered
+and accepted forms for faces attributes are: triangles or quads.
+We ignore at import time features such as texture coordinates, materials and groups.
+
+
+.. _Wikipedia: http://en.wikipedia.org/wiki/Wavefront_.obj_file
+
 |
 
 Import Surface and TimeSeries from GIFTI

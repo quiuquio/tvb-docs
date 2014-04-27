@@ -187,7 +187,7 @@ However, in order to use all this data you will need as a prerequisite to:
     - go to "project" area, create a new project, save it
     - same "project" area, select "Data Structure" link near you newly created project
     - button "CFF Importer" on the right
-    - select "demoData/dataset_XX.cff" from TVB distribution package you've previously downloaded and unpacked.
+    - select "demo_data/dataset_XX.cff" from TVB distribution package you've previously downloaded and unpacked.
     - you should see now one Connectivity, one or 2 surfaces and one Cortex entities in your Project Structure.
 
 However, with each new user created, a "default_project" is created, and it has a full CFF uploaded inside.

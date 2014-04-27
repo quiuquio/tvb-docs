@@ -78,6 +78,21 @@ also available.
    Brain activity wit EEG recordings.
 
 
+Dual Brain - sEEG Visualizer
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This visualizer combines the brain activity on top of a 3D display of the pacient's
+head and on the right column, the sEEG (Stereo EEG) channels recordings. Channel selection is
+also available.
+
+
+.. figure:: screenshots/visualizer_dual_head_seeg.jpg
+   :width: 90%
+   :align: center
+
+   Brain activity wit sEEG recordings.
+
+
 Connectivity Measure Visualizer
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -104,6 +119,27 @@ Instead of a discrete view, this time, we can have a continous display (with gra
    :align: center
 
    Preview for Topographic Visualizer
+
+
+Surface Visualizer
+~~~~~~~~~~~~~~~~~~~~
+
+This visualizer can be used for displaying various Brain Surface. It is a static view,
+mainly for visual inspecting imported surfaces in TVB.
+Optionally it can display associated RegionMapping entities for a given surface.
+
+.. figure:: screenshots/visualizer_surface.jpg
+   :width: 90%
+   :align: center
+
+   Surface Visualizer.
+
+Sensor Visualizer
+~~~~~~~~~~~~~~~~~~~~
+
+This visualizer can be used for displaying EEG, MEEG, and internal sensors .
+It is a static view, intended for visual inspecting imported sensors in TVB.
+Optionally it can display the sensors on a EEG cap surface.
 
 
 Group Display
@@ -189,12 +225,23 @@ spectrum for every frequency frequency and for every segment
 
 This visualizer is very similar with the previous one (Cross Coherence Visualizer).
 
+.. figure:: screenshots/visualizer_complex_coherence.jpg
+     :width: 90%
+     :align: center
+
+     Preview for Complex Coherence Visualizer
+
 
 Cross Correlation Visualizer
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Displays the cross-correlation matrix. Similar to the previous three visualizers.
 
+
+Pearson Coefficients Visualizer
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Displays the Pearson correlation coefficients matrix. Similar to the previous four visualizers.
 
 
 Fourier Spectrum Visualizer

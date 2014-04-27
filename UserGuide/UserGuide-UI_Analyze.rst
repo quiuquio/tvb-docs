@@ -1,4 +1,4 @@
-Analyze
+﻿Analyze
 -------
 
 This area offers a set of techniques for data analysis.
@@ -40,6 +40,7 @@ coefficients for all possible combinations of nodes.
 Results are visualized with the `Correlation viewer`.
 
 
+
 Fourier Spectral Analysis
 .........................
 
@@ -76,7 +77,7 @@ a function of frequency.
 
 To calculate the cross-coherence of all nodes of a given multi-node time-series, 
 simply select the TimeSeries object from the drop-down list in the `Cross coherence of nodes` 
-interface, select an appropriate block-size for the Fourier Transform and hit `Launch`.
+interface, select an appropriate measure for data-point per block, and hit `Launch`.
 
 .. The algorithm returns a CoherenceSpectrum object that is a xD-Matrix with the Dimensions {x,x,x…}.
 
@@ -86,6 +87,22 @@ The resulting coherence spectrum can be viewed with the `Cross coherence visuali
 .. image:: screenshots/visualizer_cross_coherence.jpg
      :width: 90%
      :align: center
+
+
+Complex coherence of nodes
+...........................
+
+To calculate the complex-cross-coherence of all nodes of a given multi-node time-series,
+simply select the TimeSeries object from the drop-down list in the `Complex coherence of nodes`
+interface and hit `Launch`.
+
+The resulting coherence spectrum can be viewed with the `Complex coherence visualizer`.
+
+
+.. image:: screenshots/visualizer_complex_coherence.jpg
+     :width: 90%
+     :align: center
+
 
 
 Temporal covariance of nodes

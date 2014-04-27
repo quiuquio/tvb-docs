@@ -55,23 +55,27 @@ Connectivity Matrix Editor
 
    Preview for the Matrix Editor
 
-From the this 2D display allows you to:
+From this interactive 2D display you can:
 
-  - easily edit the connectivity (tract lengths) matrix, and
-  - create a modified version of your connectivity matrix
-  - select a small subset of nodes
-    - perform basic algebraic operations on that group
-  - save all changes to use the new Connectivity object in a simulation.
+  - easily edit the connectivity weights or tract lengths matrix; 
+  - select a subset of the available nodes;
+  - perform basic algebraic operations on that group; and
+  - save the new version as a new connectivity matrix.
+
+  The Connectivity datatype will be available in the Simulator area. 
 
 
 .. hint:: 
 
-    In the Matrix Editor only one quadrant is displayed at a time.
+    In the Connectivity Editor only one quadrant is displayed at a time.
     You can select which quadrant is shown by accessing the quadrant selector 
     button in the upper left corner of the matrix display.
-     
-    - quadrants 1 and 4 are the intra-hemisphere connectivity weights,
-    - and quadrants 2 and 3 are the inter-hemisphere connectivity weights.
+
+    Assuming that the connectivity matrix is sorted such that the first half
+    corresponds one single hemisphere:
+
+    - quadrants 1 and 4 will represent the intra-hemispheric connections,
+    - and quadrants 2 and 3 will be the inter-hemispheric connections. 
 
 
       .. figure:: screenshots/connectivity_quadrants.jpg
@@ -80,66 +84,6 @@ From the this 2D display allows you to:
 
       Preview for Quadrant Selection
 
-
-The **Weights** button opens a menu that allows you to perform basic algebraic 
-operations on a set of selected nodes specifying the edge type:
-
-    - Incoming --> Incoming
-    - Incoming --> Outgoing
-    - Outgoing --> Incoming
-    - Outgoing --> Outgoing
-
-.. i.e., if the connection strengths to be modified are going out or coming in from/to the selected nodes.
-
-|
-
-.. figure:: screenshots/connectivity3d_edges_operations.jpg
-   :width: 90%
-   :align: center
-
-   Preview for Operations on a selection of nodes
-
-
-.. note:: 
-  Available operations are:
-
-  - Assignation (set): assigns the given numeric value to all the nodes within 
-    the set.
-  - Addition (add): adds the new value to the current value in the connectivity 
-    matrix.
-  - Subtraction (decrease): subtracts the new value to the current value in the 
-    connectivity matrix.
-  - Multiplication (multiply): multiplies the current value in the connectivity 
-    matrix by the given numeric value.
-  - Division (divide): divides the current value in the connectivity matrix by 
-    the given numeric value.
-
-
-Click on the `Apply weight change` button to perform the selected operation.
-
-.. note::
-
-    TVB is designed to handle connectivity matrices whose values are:
-    
-      - positive real values, meaning that there is a connection, or
-      - zero values, meaning the absence of a connection
-
-.. warning:: 
-
-      - TVB does not handle unknowns such as NaNs or Infs.
-
-      - If your connectivity matrix contains negative values, such as -1 values
-        you should either set these values to zero or an estimated value based 
-        on your research assumptions. 
- 
-
-By default the set includes all the available nodes in the connectivity matrix. 
-
-    .. figure:: screenshots/connectivity3d_newselection.jpg
-      :width: 90%
-      :align: center
-
-      Preview for New Selection
 
 
 You can create a smaller selection by clicking on the `Quick-select` button and
@@ -162,6 +106,186 @@ TVB enables you to save:
     used later on in |TVB| `Simulator`.
 
 
+The **Weights** button opens a menu to perform basic algebraic operations on
+a group of edges. You can select multiple nodes from the current connectivity
+(by default all nodes are selected); thus you will end up with two sets of
+nodes: the set of **selected nodes** and the set of **un-selected nodes**. These two
+sets of nodes, determine four categories of edges:
+
+    - In --> In:  are only the edges connecting the nodes of the selected set. 
+    - In --> Out: are the edges that connect nodes in the selected set (rows) to nodes in the unselected set (columns).
+    - Out --> In: are the edges connecting nodes in the unselected set (rows) to nodes in the selected set (columns). 
+    - Out --> Out: are edges connecting pair of nodes in the 'unselected set'.
+
+
+
+.. figure:: screenshots/connectivity3d_edges_operations.jpg
+   :width: 90%
+   :align: center
+
+   Preview for Bulk Operations on edges
+
+
+.. note:: 
+  Available operations are:
+
+  - Assignation (set): assigns the given numeric value to all the edges within
+    the set.
+  - Addition (add): adds the new value to the current value in the connectivity 
+    weights matrix.
+  - Subtraction (decrease): subtracts the new value to the current value in the 
+    connectivity matrix of weights.
+  - Multiplication (multiply): multiplies the current value in the connectivity 
+    matrix of weights by the given numeric value.
+  - Division (divide): divides the current value in the connectivity matrix of weights by
+    the given numeric value.
+
+
+Click on the `Apply weight change` button to perform the selected operation on a group of edges.
+
+
+Example: **HOW TO REMOVE INTER-HEMISPHERIC CONNECTIONS**
+
+1. Select multiple nodes from the Connectivity, for instance those from the left hemisphere. 
+
+
+    .. figure:: screenshots/connectivityeditor_SelectASetOfNodes_a.jpg
+      :width: 90%
+      :align: center
+
+      Node selection
+
+
+2. Apply the changes. The selected nodes appear in green. 
+
+
+    .. figure:: screenshots/connectivityeditor_SelectASetOfNodes_b.jpg
+      :width: 90%
+      :align: center
+
+      Node selection
+
+3. Save the selection to make it easier later. 
+
+
+    .. figure:: screenshots/connectivityeditor_SaveSelection.jpg
+      :width: 90%
+      :align: center
+
+      Save node selection
+
+
+
+4. The Connectivity editor will be aware of two sets of nodes: the ones in your
+selection (green nodes) and the ones that are not selected (white nodes).
+
+
+5. Move to the third quadrant (Q3) for instance. 
+
+
+    .. figure:: screenshots/connectivityeditor_ShowConnections.jpg
+      :width: 90%
+      :align: center
+
+      3D visualizer zoom-in to show the interhemispheric connections 
+
+
+
+5. Then you can proceed to perform some operations on the edge values.
+
+    .. figure:: screenshots/connectivityeditor_EdgeOperations.jpg
+      :width: 90%
+      :align: center
+
+      Edge operations 
+
+
+
+The four categories of edges in this particular case are:
+
+  - edges IN-IN: intrahemispheric edges from the left hemisphere.
+  - edges OUT-OUT: intrahemispheric edges from the right.  
+  - edges IN-OUT:  interhemispheric edges in quadrant 2 (Q2)   
+  - edges OUT-IN:  interhemispheric edges in quadrant 3 (Q3)
+  
+
+6. Select operation "Set(n)" for edges **OUT-IN**, set the value to 0 and then press Apply.
+
+
+.. figure:: screenshots/connectivityeditor_SetInOut.jpg
+    :width: 90%
+    :align: center
+
+    Set IN-OUT edges to 0
+ 
+
+7. Repeat for edges **IN-OUT**
+
+
+.. figure:: screenshots/connectivityeditor_SetOutIn.jpg
+    :width: 90%
+    :align: center
+
+    Set OUT-IN edges to 0
+
+
+The inter-hemispheric connections are gone. Do not forget to select all the nodes again before saving your new matrix.
+
+
+.. figure:: screenshots/connectivityeditor_NewMatrix.jpg
+    :width: 90%
+    :align: center
+
+    New matrix
+
+
+8. Save your new matrix 
+
+
+.. figure:: screenshots/connectivityeditor_SaveNewConenctivity.jpg
+    :width: 90%
+    :align: center
+
+    Save new matrix
+
+
+9. Once you have your new matrix, you can launch the connectivity visualizers and
+check that these connections are not there any more.
+
+
+.. figure:: screenshots/connectivityeditor_ReloadView.jpg
+    :width: 90%
+    :align: center
+
+    Reload view
+
+
+
+.. note::
+
+    TVB is designed to handle connectivity matrices whose values are:
+    
+      - positive real values, meaning that there is a connection, or
+      - zero values, meaning the absence of a connection
+
+.. warning:: 
+
+      - TVB does not handle unknowns such as NaNs or Infs.
+
+      - If your connectivity matrix contains negative values, such as -1 values
+        you should either set these values to zero or an estimated value based 
+        on your research assumptions. 
+ 
+
+By default the set of selected nodes includes all the available nodes in the connectivity matrix.
+
+.. figure:: screenshots/connectivity3d_newselection.jpg
+    :width: 90%
+    :align: center
+
+    Preview for New Selection
+
+
 |
 |
 
@@ -180,7 +304,7 @@ base model part of TVB.
 
    Preview for Connectivity Viewer 3D Edges
 
-The 3D semi-transparent surface arround the connectivity nodes, whether it is
+The 3D semi-transparent surface around the connectivity nodes, whether it is
 the cortical surface or the outer-skin, is used just for giving space guidance.
 
 You can select an individual node and right-click on it to activate the incoming
@@ -195,28 +319,6 @@ edges.
 
    Preview for Connectivity Viewer 3D Edges - Coloring incoming / outgoing edges
 
-
-|
-|
-
-Connectivty 3D Nodes
-~~~~~~~~~~~~~~~~~~~~
-
-A 3D representation of the connectivity matrix nodes. (WebGL)
-
-Two specific connectivity node-metrics, (previously computed using one of BCT 
-analyzers) can be used to independently set: 
-  
-  - the node color and
-  - the node size. 
-
-
-.. figure:: screenshots/connectivity3d_viewer.jpg
-   :width: 50%
-   :align: center
-
-   Preview for Connectivity 3D Viewer
- 
 
 |
 |
@@ -249,7 +351,7 @@ There are three main views (projections):
 |
 
 The node size can be defined using a ConnectivityMeasure datatype 
-(e.g. the output of a BCT Anlayzer). Additionally, a threshold can be set for 
+(e.g. the output of a BCT Analyzer). Additionally, a threshold can be set for
 the node color. The nodes with values above the threshold will be red and those
 whose value are below the threshold will be yellow.
 
@@ -297,6 +399,54 @@ connectivity matrix.
    
    Preview for Matrix Overview display
 
+
+|
+|
+
+Space-Time
+~~~~~~~~~~~
+
+This is a three-dimensional representation of the delayed-connectivity
+structure (space-time) when combined with spatial separation and a finite
+conduction speed.  The connectome, consists of the weights matrix giving the
+strength and topology of the network; and the tract lengths matrix giving the
+distance between pair of regions. When setting a specific conduction speed,
+the distances will be translated into time delays. The space-time visualizer
+disaggregate the *weights* matrix and each slice correspond to connections
+that fall into a particular distance (or delay) range. the first slice is the
+complete weights matrix. Click on any of the subsequent slices to see the
+corresponding 2D matrix plot.
+
+
+.. figure:: screenshots/connectivityspacetime_main.jpg
+   :width: 50%
+   :align: center
+   
+   Preview for the space-time display
+
+
+
+.. figure:: screenshots/connectivityspacetime_fullmatrix.jpg
+   :width: 50%
+   :align: center
+   
+   The first slice is the full weights matrix
+
+
+
+.. figure:: screenshots/connectivityspacetime_slice_a.jpg
+   :width: 50%
+   :align: center
+   
+   Connections that are between 0 and 2.84 ms, for a conduction speed of 9 mm/ms
+
+
+
+.. figure:: screenshots/connectivityspacetime_slice_b.jpg
+   :width: 50%
+   :align: center
+   
+   Connections that are between 2.84 and 5.68 ms, for a conduction speed of 9 mm/ms
 
 
 Local Connectivity

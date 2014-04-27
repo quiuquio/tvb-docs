@@ -120,7 +120,7 @@ The following is a demo script for using TVB Command mode for various operations
 
 	## First lines should always be setting use_storage flag to true if you want to persisted data.
 	from tvb.basic.profile import TvbProfile as tvb_profile
-    tvb_profile.set_profile(["-profile", "CONSOLE_PROFILE"])
+        tvb_profile.set_profile(["-profile", "CONSOLE_PROFILE"])
 	
 	## We need and user and a project. You can initialize your database with
 	## the following. Care this will also reset all the data from your database.
@@ -134,7 +134,7 @@ The following is a demo script for using TVB Command mode for various operations
 	from tvb.core.traits import db_events
 	from tvb.core.entities import model
 	from tvb.core.entities.storage import dao
-	from tvb.core.services.operationservice import OperationService
+	from tvb.core.services.operation_service import OperationService
 	from tvb.core.adapters.abcadapter import ABCAdapter
 	from tvb.simulator import simulator, models, coupling, integrators, monitors, noise
 	
